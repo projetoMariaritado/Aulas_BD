@@ -1,0 +1,101 @@
+1- quantos clientes estao cadastrados
+
+MariaDB [exemplo_musica]> select count(*)from clientes;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.000 sec)
+
+
+2-quais os artistas que estao no sistema
+
++----------------------+
+| nome                 |
++----------------------+
+| Alicia Keys          |
+| Anitta               |
+| Descemer Bueno       |
+| Enrique Iglesias     |
+| Farruko              |
+| Gente de Zona        |
+| Joca Martins         |
+| José Cláudio Machado |
+| Lennox               |
+| Luis Fonsi           |
+| Luiz Marenco         |
+| Maluma               |
+| Mano Lima            |
+| MC Créu              |
+| Mettallica           |
+| Nicky Jam            |
+| Pedro Capó           |
+| Shakira              |
+| Zion                 |
++----------------------+
+19 rows in set (0.001 sec)
+
+3-quais sao os planos, valores e limites de dawnloads
+
+MariaDB [exemplo_musica]> select descricao, valor, limite from planos;
++-----------+-------+--------+
+| descricao | valor | limite |
++-----------+-------+--------+
+| Light     | 29.99 |    100 |
+| Sem nome  | 39.99 |    500 |
+| Full      | 49.99 | 999999 |
++-----------+-------+--------+
+3 rows in set (0.000 sec)
+
+4-listes todos os artista que tenham como inicial a letra 'A".
+
+MariaDB [exemplo_musica]> select*from artistas where nome like 'A%';
++----+-------------+---------------+---------------------+---------------------+
+| id | nome        | gravadoras_id | created             | modified            |
++----+-------------+---------------+---------------------+---------------------+
+|  6 | Alicia Keys |             4 | 2019-10-21 17:16:28 | 2019-10-21 17:16:28 |
+| 17 | Anitta      |             4 | 2019-10-21 18:01:43 | 2019-10-21 18:01:43 |
++----+-------------+---------------+---------------------+---------------------+
+2 rows in set (0.009 sec)
+
+5-LISTE OS ARTISTAS QUE FIZERAM CONTRATO COM A GRAVADORA 2.
+
+
+MariaDB [exemplo_musica]> SELECT * FROM ARTISTAS WHERE GRAVADORAS_ID = 2;
++----+----------------------+---------------+---------------------+---------------------+
+| id | nome                 | gravadoras_id | created             | modified            |
++----+----------------------+---------------+---------------------+---------------------+
+|  1 | Mano Lima            |             2 | 2019-10-18 13:28:53 | 2019-10-18 13:28:53 |
+|  7 | Joca Martins         |             2 | 2019-10-21 17:18:46 | 2019-10-21 17:18:46 |
+|  8 | José Cláudio Machado |             2 | 2019-10-21 17:19:24 | 2019-10-21 17:19:24 |
++----+----------------------+---------------+---------------------+---------------------+
+3 rows in set (0.001 sec)
+
+6-MOSTRE OS ARTISTAS EM ORDEM ALFABETICA.
+
+MariaDB [exemplo_musica]> SELECT NOME FROM ARTISTAS ORDER BY NOME;
++----------------------+
+| NOME                 |
++----------------------+
+| Alicia Keys          |
+| Anitta               |
+| Descemer Bueno       |
+| Enrique Iglesias     |
+| Farruko              |
+| Gente de Zona        |
+| Joca Martins         |
+| José Cláudio Machado |
+| Lennox               |
+| Luis Fonsi           |
+| Luiz Marenco         |
+| Maluma               |
+| Mano Lima            |
+| MC Créu              |
+| Mettallica           |
+| Nicky Jam            |
+| Pedro Capó           |
+| Shakira              |
+| Zion                 |
++----------------------+
+19 rows in set (0.001 sec)
